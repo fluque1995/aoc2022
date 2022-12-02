@@ -21,6 +21,7 @@ def problem1():
 
     return max(accs)
 
+
 # PROBLEM 2: Given the same list, get the sum of the top three greatest values
 
 # IDEA: Given the sum of each group (same as before), compute the top-3 values
