@@ -3,7 +3,6 @@ def read_input():
     with open("inputs/day2.txt", "r") as fin:
         return [l.strip().split() for l in fin]
 
-
 # Aux function: given a game, get the score
 def get_score(game):
     WINS = [['A', 'Y'], ['B', 'Z'], ['C', 'X']]
