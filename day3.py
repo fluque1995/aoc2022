@@ -1,5 +1,6 @@
 import string
 
+
 # Parse input
 def read_input():
     with open("inputs/day3.txt", "r") as fin:
