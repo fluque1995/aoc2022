@@ -35,7 +35,7 @@ def problem_1():
 
 def problem_2():
     paths = read_input()
-    unused_space = 70000000  - paths['/']
+    unused_space = 70000000 - paths['/']
     needed_space = 30000000 - unused_space
     return min(filter(lambda x: x > needed_space, paths.values()))
 
