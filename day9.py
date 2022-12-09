@@ -33,30 +33,9 @@ class Rope:
 
     def pull(self, i, j):
         diff = self.nodes[i] - self.nodes[j]
-        if diff.x > 1:
-            self.nodes[j] += Rope.DIRS['R']
-            if diff.y > 0:
-                self.nodes[j] += Rope.DIRS['U']
-            elif diff.y < 0:
-                self.nodes[j] += Rope.DIRS['D']
-        elif diff.x < -1:
-            self.nodes[j] += Rope.DIRS['L']
-            if diff.y > 0:
-                self.nodes[j] += Rope.DIRS['U']
-            elif diff.y < 0:
-                self.nodes[j] += Rope.DIRS['D']
-        elif diff.y > 1:
-            self.nodes[j] += Rope.DIRS['U']
-            if diff.x > 0:
-                self.nodes[j] += Rope.DIRS['R']
-            elif diff.x < 0:
-                self.nodes[j] += Rope.DIRS['L']
-        elif diff.y < -1:
-            self.nodes[j] += Rope.DIRS['D']
-            if diff.x > 0:
-                self.nodes[j] += Rope.DIRS['R']
-            elif diff.x < 0:
-                self.nodes[j] += Rope.DIRS['L']
+        if abs(diff.x) > 1 or abs(diff.y) > 1:
+            self.nodes[j] += Rope.DIRS['R'] if diff.x > 0 else Rope.DIRS['L'] if diff.x < 0 else P(0,0)
+            self.nodes[j] += Rope.DIRS['U'] if diff.y > 0 else Rope.DIRS['D'] if diff.y < 0 else P(0,0)
 
     def move(self, direction, steps):
         for _ in range(steps):
