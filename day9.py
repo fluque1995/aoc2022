@@ -17,14 +17,11 @@ class P:
     def __repr__(self):
         return f"P({self.x}, {self.y})"
 
-    def __str__(self):
-        return f"P({self.x}, {self.y})"
-
     def __eq__(self, other):
         return self.x == other.x and self.y == other.y
 
     def __hash__(self):
-        return 1000*self.x + self.y
+        return hash(repr(self))
 
 
 class Rope:
@@ -72,18 +69,14 @@ class Rope:
 def problem_1():
     directions = read_input()
     rope = Rope(2)
-    for d, s in directions:
-        rope.move(d, s)
-
+    [rope.move(d, s) for d, s in directions]
     return len(rope.visits)
 
 
 def problem_2():
     directions = read_input()
     rope = Rope(10)
-    for d, s in directions:
-        rope.move(d, s)
-
+    [rope.move(d, s) for d, s in directions]
     return len(rope.visits)
 
 
